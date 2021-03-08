@@ -1,0 +1,7 @@
+[submodule "vendor-uboot"]
+	path = vendor-uboot
+	url = https://github.com/geezer85/u-boot.git
+	branch = libretech-cc
+[submodule "mainline-uboot"]
+	path = mainline-uboot
+	url = https://github.com/u-boot/u-boot.git
