@@ -11,13 +11,15 @@ Steps:
 
 The easiest option is to use the ARM Developer toolchains from here: https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads. Download both AArch32 bare metal target and AArch64 ELF bare-metal target compilers, extract them, and add the bin directory from each to your PATH.
 
-2) Edit or remove config (optional):
+2) Run "git submodule update --init" to populate submodules
+
+3) Edit or remove config (optional):
 
 Two example mainline u-boot configurations are included. The config symlink points to config.emmc. If you use an SD card instead you can point it to config.sdcard. If you would prefer defaults simply delete the symlink before proceeding. You can also edit it like any other KConfig file (make menuconfig, etc.) if you copy it to the mainline-uboot directory first. If it does not exist run "git submodule update --remote --recursive" in the top-level directory.
 
-3) Run build.sh
+4) Run build.sh
 
-4) Install on eMMC/SD card:
+5) Install on eMMC/SD card:
 
 Warning: Make sure to use the correct devices or you'll wipe your OS. If in doubt Balena Etcher works for the SD card.
 

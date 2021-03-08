@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Pull in vendor and mainline u-boot
-git submodule update --remote --recursive
-
 # Check for cross-compile support
 which arm-none-eabi-gcc 2>&1 >/dev/null
 if [ $? -ne 0 ]; then
@@ -34,11 +31,7 @@ else
 fi
 
 # If config exists copy it first, else use defaults.
-if [ -x config ]; then
-	cp config mainline-uboot/.config && cd mainline-uboot
-else
-	cd mainline-uboot && make libretech-cc_defconfig 2>&1 >>../build.log
-fi
+cp config mainline-uboot/.config && cd mainline-uboot
 
 # Build mainline-uboot
 echo "Building mainline u-boot. This will take a few minutes..."
