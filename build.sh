@@ -35,6 +35,7 @@ cp config mainline-uboot/.config && cd mainline-uboot
 
 # Build mainline-uboot
 echo "Building mainline u-boot. This will take a few minutes..."
+yes '' | make oldconfig 2>&1 >>../build.log
 make -j 2>&1 >>../build.log
 if [ $? -ne 0 ]; then
 	echo "Build failed! Check build.log"
@@ -46,7 +47,8 @@ fi
 
 # Sign boot image
 export FIPDIR=vendor-uboot/fip
-mkdir fip
+rm -rf fip 2>&1 > /dev/null
+mkdir fip 2>&1 > /dev/null
 cp $FIPDIR/gxl/bl2.bin fip/
 cp $FIPDIR/gxl/acs.bin fip/
 cp $FIPDIR/gxl/bl21.bin fip/
