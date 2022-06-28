@@ -3,11 +3,11 @@ Scripts for building mainline u-boot images on Libretech CC (Le Potato)
 
 Notes:
 
-The closed-source fip_create and aml_encrypt_gxl binaries from the chipset vendor are compiled (statically) for x86_64 Linux. It is not currently possible to build the vendor u-boot on any other OS or architecture.
+The closed-source fip_create and aml_encrypt_gxl binaries from the chipset vendor are compiled (statically) for x86_64 Linux. To sign the image on ARM qemu-user-static must be installed (at least qemu-x86_64_static). 
 
 Steps:
 
-1) Download or build cross-compile toolchains for arm-none-eabi- and aarch64-none-elf- targets and add them to your PATH:
+1) If building on an architecture other than aarch64, download or build cross-compile toolchains for arm-none-eabi- and aarch64-none-elf- targets and add them to your PATH:
 
 The easiest option is to use the ARM Developer toolchains from here: https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads. Download both AArch32 bare metal target and AArch64 ELF bare-metal target compilers, extract them, and add the bin directory from each to your PATH.
 
